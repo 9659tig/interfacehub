@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# build outputs
+dist/
+server/dist/
+client/dist/
+*.tsbuildinfo
+
+# env / secrets
+.env
+.env.*
+!.env.example
+server/.env
+client/.env
+
+# runtime data
+server/data/
+*.db
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# macOS
+.DS_Store

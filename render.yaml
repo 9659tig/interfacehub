@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: interfacehub-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: SIMULATOR_ENABLED
+        value: true
+      - key: SIMULATOR_INTERVAL_MS
+        value: 1000
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

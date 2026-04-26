@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - AI_PROVIDER=${AI_PROVIDER:-gemini}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - SIMULATOR_ENABLED=true
+      - SIMULATOR_INTERVAL_MS=1000
+    volumes:
+      - server-data:/app/data
+
+  client:
+    build: ./client
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+
+volumes:
+  server-data:
